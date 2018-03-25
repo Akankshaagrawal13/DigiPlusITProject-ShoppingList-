@@ -1,0 +1,34 @@
+<div class="container"
+ fxLayout="column"
+ fxLayoutGap="10px">
+ <div fxFlex>
+    <div>
+      <h3>Product</h3>
+      <hr>
+    </div>
+  </div>
+  <!--<div fxFlex>
+    <form novalidate #searchForm="ngForm">
+     <input type="text" id="searchTextId" [(ngModel)]="searchText" name="searchText" #search="ngModel" placeholder="Search By Name">
+     </form>
+  </div>-->
+
+  <div fxFlex *ngIf="products" [@expand]>
+    <md-grid-list cols="2" rowHeight="200px">
+     <md-grid-tile *ngFor="let product of products" [routerLink]="['/itemdetail', product.id]">
+      <img height="200px" src="{{BaseURL + product.image}}" alt={{product.name}}>
+        <md-grid-tile-footer>
+          <h1 md-line>{{product.name | uppercase}}</h1>
+        </md-grid-tile-footer>
+      </md-grid-tile>
+    </md-grid-list>
+  </div>
+  <div [hidden]="products || errMess">
+    <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+  <div *ngIf="errMess">
+    <h2>Error</h2>
+    <h4>{{errMess}}</h4>
+  </div>
+  
+  </div>

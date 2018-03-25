@@ -1,0 +1,25 @@
+<div class="container"
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign.gt-md="space-around"
+    fxLayoutGap="10px" 
+    fxLayoutGap.xs="0">
+ 
+  
+  <div fxFlex *ngIf="product" [@expand]>
+   <h3>ProductsItem</h3>
+   <md-card fxFlex *ngFor="let product of product.items">
+   <img md-card-image src="{{BaseURL + product.itemimage1}}">
+   </md-card>
+    <md-card fxFlex *ngFor="let product of product.items">
+     <img md-card-image src="{{BaseURL + product.itemimage2}}">
+   </md-card>
+   <md-card fxFlex *ngFor="let product of product.items">
+     <img md-card-image src="{{BaseURL + product.itemimage3}}">
+   </md-card>
+  </div>
+
+  
+
+</div>
